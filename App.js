@@ -1,5 +1,3 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import SignInScreen from "./src/screens/public/SignInScreen";
 import SignUpScreen from "./src/screens/public/SignUpScreen";
@@ -14,6 +12,7 @@ import ChatScreen from "./src/screens/private/ChatScreen";
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
 import { strings, theme } from "./src/shared";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 
 const Stack = createNativeStackNavigator();
@@ -52,22 +51,35 @@ const HomeScreen = () => {
       <Tabs.Screen name="ChatScreen" component={ChatScreen}
         options={{
           title: strings.screens.private.chat.title,
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="chat" color={color} size={26} />
+          ),
 
         }}
       />
       <Tabs.Screen name="NotificationScreen" component={NotificationScreen}
         options={{
           title: strings.screens.private.notification.title,
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="bell" color={color} size={26} />
+          ),
         }}
       />
       <Tabs.Screen name="ProfileScreen" component={ProfileScreen}
         options={{
           title: strings.screens.private.profile.title,
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="account" color={color} size={26} />
+          ),
         }}
       />
       <Tabs.Screen name="SettingsScreen" component={SettingsScreen}
         options={{
           title: strings.screens.private.settings.title,
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="cog" color={color} size={26} />
+          ),
+          y
         }}
 
       />
