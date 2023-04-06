@@ -9,11 +9,10 @@ import NotificationScreen from "./src/screens/private/NotificationScreen";
 import SettingsScreen from "./src/screens/private/SettingsScreen";
 import ProfileScreen from "./src/screens/private/ProfileScreen";
 import ChatScreen from "./src/screens/private/ChatScreen";
-import * as SplashScreen from 'expo-splash-screen';
-import * as Font from 'expo-font';
+import * as SplashScreen from "expo-splash-screen";
+import * as Font from "expo-font";
 import { strings, theme } from "./src/shared";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-
 
 const Stack = createNativeStackNavigator();
 const Tabs = createBottomTabNavigator();
@@ -27,14 +26,13 @@ const HomeScreen = () => {
         headerShown: true,
         headerStyle: {
           backgroundColor: theme.colors.primary,
-
         },
         headerTitleStyle: {
           //fontFamily: theme.fonts.bold,
         },
-        headerTintColor: theme.colors.black,
+        //headerTintColor: theme.colors.black,
         tabBarActiveTintColor: theme.colors.primary,
-        tabBarInactiveTintColor: theme.colors.gray,
+        //tabBarInactiveTintColor: theme.colors.gray,
         tabBarStyle: {
           //backgroundColor: theme.colors.white,
           //borderTopColor: theme.colors.gray,
@@ -43,21 +41,21 @@ const HomeScreen = () => {
         tabBarLabelStyle: {
           //fontFamily: theme.fonts.regular,
         },
-
-
-
       }}
     >
-      <Tabs.Screen name="ChatScreen" component={ChatScreen}
+      <Tabs.Screen
+        name="ChatScreen"
+        component={ChatScreen}
         options={{
           title: strings.screens.private.chat.title,
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="chat" color={color} size={26} />
           ),
-
         }}
       />
-      <Tabs.Screen name="NotificationScreen" component={NotificationScreen}
+      <Tabs.Screen
+        name="NotificationScreen"
+        component={NotificationScreen}
         options={{
           title: strings.screens.private.notification.title,
           tabBarIcon: ({ color }) => (
@@ -65,7 +63,9 @@ const HomeScreen = () => {
           ),
         }}
       />
-      <Tabs.Screen name="ProfileScreen" component={ProfileScreen}
+      <Tabs.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
         options={{
           title: strings.screens.private.profile.title,
           tabBarIcon: ({ color }) => (
@@ -73,25 +73,24 @@ const HomeScreen = () => {
           ),
         }}
       />
-      <Tabs.Screen name="SettingsScreen" component={SettingsScreen}
+      <Tabs.Screen
+        name="SettingsScreen"
+        component={SettingsScreen}
         options={{
           title: strings.screens.private.settings.title,
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="cog" color={color} size={26} />
           ),
-          y
         }}
-
       />
     </Tabs.Navigator>
   );
 };
 export default function App() {
-
   const [fontsLoaded] = Font.useFonts({
-    'Kodchasan-Bold': require('./assets/fonts/Kodchasan-Bold.ttf'),
-    'Kodchasan-Regular': require('./assets/fonts/Kodchasan-Regular.ttf'),
-    'Kodchasan-SemiBold': require('./assets/fonts/Kodchasan-SemiBold.ttf'),
+    "Kodchasan-Bold": require("./assets/fonts/Kodchasan-Bold.ttf"),
+    "Kodchasan-Regular": require("./assets/fonts/Kodchasan-Regular.ttf"),
+    "Kodchasan-SemiBold": require("./assets/fonts/Kodchasan-SemiBold.ttf"),
     "Kodchasan-Medium": require("./assets/fonts/Kodchasan-Medium.ttf"),
     "Kodchasan-Light": require("./assets/fonts/Kodchasan-Light.ttf"),
   });
@@ -106,25 +105,25 @@ export default function App() {
     return null;
   }
   return (
-    <NavigationContainer
-      onReady={() => onLayoutRootView()}
-    >
+    <NavigationContainer onReady={() => onLayoutRootView()}>
       <Stack.Navigator initialRouteName="OnBoardingScreen">
         <Stack.Screen name="SignInScreen" component={SignInScreen} />
         <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
-        <Stack.Screen name="OnBoardingScreen" component={OnBoardingScreen}
+        <Stack.Screen
+          name="OnBoardingScreen"
+          component={OnBoardingScreen}
           options={{
-            headerShown: false
+            headerShown: false,
           }}
         />
-        <Stack.Screen name="HomeScreen" component={HomeScreen}
+        <Stack.Screen
+          name="HomeScreen"
+          component={HomeScreen}
           options={{
-            headerShown: false
+            headerShown: false,
           }}
         />
-
       </Stack.Navigator>
-    </NavigationContainer >
+    </NavigationContainer>
   );
 }
-
